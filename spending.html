@@ -1,0 +1,188 @@
+<html>
+  <head>
+  <title>Spending Calculator</title>
+  
+ 
+  <style>
+  
+  body {
+  font-family: Helvetica;
+  background-image: url('cash.jpg');
+   
+  }
+  .bars {
+  background-color: lightblue;
+  height: 20px;
+  
+  font-size: 12px;
+  text-align: right;
+  padding: 5px 5px 0 0;
+  width: 0;
+ 
+  }
+  
+  
+  .text {
+  font-weight: bold;
+  
+  }
+  
+  #main {
+  height: auto;
+  width: 800;
+  background-color: silver;
+  padding: 10px;
+  margin: auto;
+  border-radius: 10px;
+  }
+  
+#header {
+margin-top: 0;
+border: 2px solid black;
+color: white;
+background-color: green;
+padding: 5px;
+height: auto;
+background-image: ;
+
+}
+
+#chart {
+
+margin-top: auto;
+margin-left: 100;
+margin-right: 100;
+margin-bottom: auto;
+border: 2px solid black;
+color: white;
+background-color: green;
+padding-left: 10px;
+height: auto;
+width: auto;
+background-image: ;
+
+}
+   
+   
+ 
+ 
+  
+ 
+  </style>
+  </head>
+  <body>
+  
+  
+  <div id="main">
+  <div id="header"><h1><center> Spending Calculator</center><h1></div>
+  <center><h2>How much do you spend on each category a month?</h2></center>
+  
+  <!-- this is your form -->
+  <center>
+  <table>
+  <form method="post" action="#" id="form1" name="form1"  >
+     <tr><td>Restaurants: </td><td><input type="number" name="restaurantsvar"             id="restaurantsvar"></td></tr>
+     <tr><td>Groceries: </td><td><input type="number" name="groceriesvar" id="groceriesvar"></td></tr>
+     <tr><td>Entertainment: </td><td><input type="number" name="entertainmentvar" id="entertainmentvar"></td></tr>
+     <tr><td>Clothes: </td><td><input type="number" name="clothesvar" id="clothesvar"></td></tr>
+     <tr><td>Rent: </td><td><input type="number" name="rentvar" id="rentvar"></td></tr>
+     <tr><td>Utilities: </td><td><input type="number" name="utilitiesvar" id="utilitiesvar"></td></tr>
+     <tr><td>Transportation: </td><td><input type="number" name="transportationvar" id="transportationvar"></td></tr>
+     <tr><td>Other: </td><td><input type="number" name="othervar" id="othervar"></td></tr>
+    <tr><td> <input type="submit" value="Submit"></td></tr>
+     </form>
+ </table> </center>
+     
+     <!-- this is the location where the total is input from the calculation below -->
+       <br><div id=chart>
+       <p>Monthly Total: <span id="total"></span></p>
+       <p>Yearly Total: <span id="product"></span></p>
+       <p>Daily Total: <span id="average"></span></p>
+        
+<div id="bar0" class="bars"></div>
+<div id="name0">Restaurants</div>
+<div id="bar1" class="bars"></div>
+<div id="name1">Groceries</div>
+<div id="bar2" class="bars"></div>
+<div id="name2">Entertainment</div>
+<div id="bar3" class="bars"></div>
+<div id="name3">Clothes</div>
+<div id="bar4" class="bars"></div>
+<div id="name4">Rent</div>
+<div id="bar5" class="bars"></div>
+<div id="name5">Utilities</div>
+<div id="bar6" class="bars"></div>
+<div id="name6">Transportation</div>
+<div id="bar7" class="bars"></div>
+<div id="name7">Other:</div>
+       
+       
+       
+  </div>  
+    <script type="text/javascript">
+   
+    
+     //everything is within this onsubmit function. Executes on form submit
+     document.getElementById("form1").onsubmit=function() {
+
+ //these lines get the value from the form and put it in a variable. the || indicates a 0 if empty.
+       restaurants = parseFloat(document.getElementById('restaurantsvar').value) || 0;
+       groceries = parseFloat(document.getElementById('groceriesvar').value) || 0;
+       entertainment = parseFloat(document.getElementById('entertainmentvar').value) || 0;
+       clothes = parseFloat(document.getElementById('clothesvar').value) || 0;
+       rent = parseFloat(document.getElementById('rentvar').value) || 0;
+       utilities = parseFloat(document.getElementById('utilitiesvar').value) || 0;
+       transportation = parseFloat(document.getElementById('transportationvar').value) || 0;
+       other = parseFloat(document.getElementById('othervar').value) || 0;
+     
+       //total
+       total = restaurants + groceries + entertainment + clothes + rent + utilities + transportation + other;
+       product= 12*total;
+       average=product/365;
+       
+       
+
+       document.getElementById("total").innerHTML = total;
+       document.getElementById("product").innerHTML = product;
+       document.getElementById("average").innerHTML = average;
+       
+       
+       document.getElementById("bar0").style.width = restaurants/15;
+       document.getElementById("bar1").style.width = groceries/15;
+       document.getElementById("bar2").style.width = entertainment/15;
+       document.getElementById("bar3").style.width = clothes/15;
+       document.getElementById("bar4").style.width = rent/15;
+       document.getElementById("bar5").style.width = utilities/15;
+       document.getElementById("bar6").style.width =  transportation/15;
+       document.getElementById("bar7").style.width = other/15;
+       
+       
+       
+      
+        
+        
+    
+       
+       
+   
+       
+       
+        
+    
+    
+    
+    
+        
+       
+      return false;
+     } // end function
+       
+          
+       
+       
+       
+       
+    </script>    
+      
+</body>
+</html>
